@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "Title": "WEB DEVELOPMENT",
+        "author": "Sharjeel",
+        "content": "web development is quite challeging to begin with byut as you go along,it will start looking easy.Practice make perfect.Thats the only key to sucess.There will be time when you will feel fraustrated or exuasted but remember the one and only rule, Dont give up"
+    },
+    {
+        "id": 2,
+        "Title": "GLOBAL WARMING",
+        "author": "SHARJEEL KHAN",
+        "content": "As more and more Co2 is released in the air,it is contributing to the Global warmiing"
+    },
+    {
+        "id": 3,
+        "Title": "SAVING EARTH",
+        "author": "SHARJEEL KHAN",
+        "content": "with the time resources are depleting and biggest factor to that is fast growing human population"
+    }
+]
