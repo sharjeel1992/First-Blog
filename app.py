@@ -31,17 +31,20 @@ def add():
       and also redirect the route to the main page.
       """
     if request.method == 'POST':
-        unique_id = request.form.get('ID')
+        data = data_loader()
+        if not data:
+            new_id = 1
+        else:
+            new_id = max(name['id'] for name in data) + 1
         title = request.form.get('Title')
         author = request.form.get('Author')
         content = request.form.get('Content')
         new_post = {
-            'id': int(unique_id),
+            'id': new_id,
             'Title': title,
             'author': author,
             'content': content
         }
-        data = data_loader()
         data.append(new_post)
         with open("data.json", "w") as update_file:
             json.dump(data, update_file, indent=4)
@@ -93,13 +96,18 @@ def update_post(post_id):
 
 
 @app.errorhandler(404)
-def page_not_found(error):
-    return render_template('404.html'), 404
+def page_not_found(e):
+    """This method will throw an exception when a user tries to reach
+     a page that doesn't exist"""
+    return render_template('404.html', post=e), 404
 
 
 @app.errorhandler(500)
-def internal_server_error(error):
-    return render_template('500.html'), 500
+def internal_server_error(e):
+    """This method will return an error if the program has any issue or
+    there is a problem with the server.
+    """
+    return render_template('500.html',post=e), 500
 
 
 if __name__ == "__main__":
